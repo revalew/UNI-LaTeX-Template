@@ -1,0 +1,47 @@
+%---------------------------------------------------------------------------
+%                                    MATLAB CODE
+% The % signs at the end of each line in the definition of a new command are important to prevent unwanted spaces from being inserted into the output. You can omit the % signs if you make sure that there is no whitespace between the end of the line and the next one.
+
+% \newcommand{\inputmatlab}[2]{%
+\NewDocumentCommand{\inputmatlab}{ O{} m m O{\fontsize{14}{10}\selectfont\ttfamily} }{%
+
+    \pagebreak%
+    \newpage%
+    \clearpage% % create a clear page just for code
+
+    \pagestyle{empty}% % changes the page style to exclude page number from this page onward
+    \newgeometry{left=2.0cm, right=2.0cm, top=0.2cm, bottom=0.2cm}% % change the margins of the page
+    \subsubsection*{}% % add spacing to achieve cheated padding
+    % \section{Kod}%
+    #2%
+    % \lstinputlisting[style=Matlab-editor, frame=single, breaklines=true, breakatwhitespace=true, numbers=none]{./../src/code/program.m} % definig the known options => to experiment with
+
+    \lstinputlisting[style=Matlab-editor, frame=single, breaklines=true, breakatwhitespace=true, basicstyle= #4 ]{#3}%
+
+    
+    % Check for specific options
+    \IfValueTF{#1}{%
+        \IfSubStr{#1}{new}{
+            \newpage%
+            lol%
+        }{}
+        \IfSubStr{#1}{num}{%
+            \begin{figure*}[b]%
+                % \centering\thepage \\[30pt] % default value of \footskip
+                \centering\color{black}{\thepage} \\[\dimexpr\footskip]% % default value of \footskip is 30pt
+            \end{figure*}%
+            % The exact value of the distance between the bottom edge of the page and the page number depends on the font size and style being used, as well as the length of the header and footer. However, you can modify the distance by adjusting the value of \footskip in your document ( \setlength{\footskip}{20pt} ). By default, the value of \footskip is 30pt, but you can increase or decrease this value as needed to adjust the position of the page number.Yes, that's correct. The default value for the distance between the bottom edge of the page and the page number is specified by the value of \footskip, which is typically set to 30pt. You can adjust this value to your liking to modify the position of the page number on the page.
+        }{}%
+    }{}%
+
+    \newpage% % restore numbering of the pages if for whatever reason you want to put something after that. only reasonable option would be bibliography
+    % \restoregeometry
+    \restoregeometry%
+    \pagestyle{plain}%
+
+    % \ifnum\value{page}>1
+    %   Page \thepage\ of \pageref{LastPage}
+    % \fi
+}%
+
+%---------------------------------------------------------------------------

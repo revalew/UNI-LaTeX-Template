@@ -1,0 +1,69 @@
+{
+	// LaTeX setup
+	"latex-workshop.latex.tools": [
+		// Note : Use %DOCFILE% instead of %DOC% in the configuration to enable support for Unicode file paths.
+		{
+			"name": "latexmk",
+			"command": "latexmk",
+			"args": [
+				"-synctex=1",
+				"-interaction=nonstopmode",
+				"-file-line-error",
+				"-pdf",
+				"-outdir=%OUTDIR%",
+				"-emulate-aux-dir",
+				"-aux-directory=%OUTDIR%/auxiliary",
+				"%DOCFILE%"
+			],
+			"env": {}
+		},
+		{
+			"name": "xelatex",
+			"command": "xelatex",
+			"args": ["-synctex=1", "-interaction=nonstopmode", "-file-line-error", "-output-directory=%OUTDIR%", "%DOC%"],
+			"env": {}
+		},
+		{
+			"name": "pdflatex",
+			"command": "pdflatex",
+			"args": ["-synctex=1", "-interaction=nonstopmode", "-file-line-error", "%DOC%"],
+			"env": {}
+		},
+		{
+			"name": "bibtex",
+			"command": "bibtex",
+			"args": ["%DOCFILE%"],
+			"env": {}
+		}
+	],
+	"latex-workshop.latex.recipes": [
+		{
+			"name": "latexmk 🔃",
+			"tools": ["latexmk"]
+		},
+		{
+			"name": "xelatex 🔃",
+			// "name": "xelatex",
+			"tools": ["xelatex"]
+		},
+		{
+			"name": "pdfLaTeX 🔃",
+			"tools": ["pdflatex"]
+		},
+		{
+			"name": "pdflatex ➞ bibtex ➞ pdflatex.2x  🔃",
+			"tools": ["pdflatex", "bibtex", "pdflatex", "pdflatex"]
+		},
+		{
+			"name": "xelatex ➞ bibtex ➞ xelatex.2x 🔃",
+			"tools": ["xelatex", "bibtex", "xelatex", "xelatex"]
+		}
+	],
+	"latex-workshop.latex.outDir": "./../dist",
+	"latex-workshop.latex.search.rootFiles.include": ["**/*.tex"],
+	"latex-workshop.view.pdf.zoom": "page-fit",
+	"latex-workshop.latex.clean.subfolder.enabled": true, // can clean auxilary files in subfolders (which i have specified with auxdir in latexmk)
+	"latex-workshop.message.error.show": false, // annoying because it requires closing it manualy
+	"latex-workshop.message.warning.show": false // compilation error => can already see the red "x" and no of problems so just annoying
+	// "latex-workshop.latex.autoClean.run": "onBuilt", // testing
+}

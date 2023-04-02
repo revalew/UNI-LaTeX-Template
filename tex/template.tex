@@ -1,0 +1,29 @@
+%---------------------------------------------------------------------------
+%                                    INPUTS
+
+\documentclass[12pt, titlepage]{article} % sets the class of the document as an article with 12pt font size and title page
+
+\input{./preamble.tex} % include all the packages in separate preamble file
+
+\input{./titlepage.tex} % include separate titlepage to make the code cleaner
+
+\input{includeMATLAB.tex} % function to include MATLAB code with \includematlab[]{\section{Code}}{path/to/the/file.m} the 1st argument can be changed to \subsection{whatever} I also added the optional arguments in the beginning: new (just testing), num - adds the number at the bottom of the matlab code AND at the end: \fontsize{14}{10}\selectfont\ttfamily default
+
+%---------------------------------------------------------------------------
+%                                   DOCUMENT
+\begin{document}
+\inputmytitle % creates the titlepage and table of contents
+
+
+\section{Cel ćwiczenia}
+\subsection{I nie tylko}
+\subsubsection{a może jednak}
+
+%---------------------------------------------------------------------------
+%                                   MATLAB CODE
+
+% \inputmatlab[num]{\subsection{Kod}}{./../src/code/program.m}[\fontsize{13}{10}\selectfont\ttfamily]
+
+%---------------------------------------------------------------------------
+
+\end{document}

@@ -1,0 +1,63 @@
+\title{
+\centering
+
+% \vspace{-4.0cm} % en logo
+\vspace{-5.0cm} % pl logo
+
+\begin{flushright}
+    % [colorinvert] [grayscale]
+    % \includegraphics[width=1.3in]{./../src/logo/en/polsl_logo2_zn_en.pdf}\\ % en logo
+    \includegraphics[scale = 0.2, trim={0 0 4.6cm 0}, clip]{./../src/logo/pl/polsl_logo.png}\\ % pl logo
+\end{flushright}
+
+% \vspace*{3.3cm} % en logo
+\vspace*{2.7cm} % pl logo
+
+% {\fontsize{30}{20}\selectfont\textbf{Wydział Automatyki, Elektroniki i~Informatyki}}\\
+{\fontsize{24}{30}\selectfont\textbf{Laboratorium \\
+Przetwarzania Obrazów Cyfrowych}}\\
+\vspace*{4.5cm}
+
+{\fontsize{14}{0}\selectfont 
+Ćwiczenie nr 2 \\[-1.2em] 
+Temat: Akwizycja obrazów barwnych - demosaicing (L02).
+}
+\vspace*{4.5cm} % 1 person in section
+% \vspace*{3.8cm} % 2 people in section
+% \vspace*{2.9cm} % 3 people in section
+}
+\author{
+% This code starts a new box or a minipage with a width of 100% of the line width. The minipage in LaTeX is similar to a text box in which you can position text similarly to the way you do on a regular page, and surround it with borders (if desired)
+\begin{minipage}{1\linewidth}
+    \begin{flushright}
+        {\begin{minipage}[t]{.28\linewidth}
+            AiR gr. 5 \\
+            % John Dere \\
+            Kisiel Maksymilian
+            % \\ Hugh Janus
+        \end{minipage}}
+    \end{flushright}
+\end{minipage}
+\vspace*{1.4cm}
+}
+
+% \date{\today}
+\date{Gliwice 2023}
+
+\renewcommand{\contentsname}{Spis treści}
+
+\newcommand{\inputmytitle}{
+    \renewcommand*{\figurename}{Rys.} % these commands are defining the specific format for captions of figures and tables respectively, and it's a document-specific choice rather than something that should be applied globally to all documents
+    \renewcommand*{\tablename}{Tab.}
+    \newgeometry{left=1.5cm, right=1.5cm, top=2.5cm, bottom=0.1cm} % Change the bottom margin
+    \maketitle % generates the title of the document based on information provided in the preamble of the document, such as title, authors and date
+    \restoregeometry % Go back to the original margins
+
+    % \input{dedication.tex} % place to toggle the dedication
+
+    \thispagestyle{empty}
+    \clearpage
+    \tableofcontents
+
+    \newpage
+}
