@@ -64,6 +64,7 @@
 	"latex-workshop.view.pdf.zoom": "page-fit",
 	"latex-workshop.latex.clean.subfolder.enabled": true, // can clean auxilary files in subfolders (which i have specified with auxdir in latexmk)
 	"latex-workshop.message.error.show": false, // annoying because it requires closing it manualy
-	"latex-workshop.message.warning.show": false // compilation error => can already see the red "x" and no of problems so just annoying
+	"latex-workshop.message.warning.show": false, // compilation error => can already see the red "x" and no of problems so just annoying
 	// "latex-workshop.latex.autoClean.run": "onBuilt", // testing
+	"latex-workshop.latex.autoBuild.interval": 2000
 }

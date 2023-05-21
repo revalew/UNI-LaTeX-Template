@@ -1,0 +1,188 @@
+%---------------------------------------------------------------------------
+
+
+
+% I HOPE THIS FILE WILL BE THE GOOD PLACE TO STORE AND LOOK FOR THE EXAMPLES OF USEFUL LaTeX STRUCTURES AND CONCEPTS WHICH I DISCOVERED
+% DURING THIS LITTLE "JOURNEY"
+
+
+
+%---------------------------------------------------------------------------
+%           CREATING "NICE" SUBFLOATS WITH TEXT INPUTS AND "INPUT SPACE CORRECTION"
+%---------------------------------------------------------------------------
+\begin{figure}[h!]
+    \centering
+    % \makebox[\linewidth][c]{\includegraphics[scale = 1, width=1.3\textwidth, trim = {0 1.0cm 0 2.0cm}, clip]{../src/img/zad_1_2.png}}
+    % \caption{Binaryzacja obrazu \textbf{O2} metodą FS za pomocą skryptu MATLAB}
+    
+    \captionsetup[subfloat]{position=bottom, justification=centering, labelformat=empty}
+    \subfloat[\fontsize{6}{6}\selectfont 
+        k1 = \input{../src/code/variables/zad_1_part_1/normal_k1_1.txt}
+        \hspace*{-0.12cm},
+        k2 = \input{../src/code/variables/zad_1_part_1/normal_k2_1.txt} \\ 
+        k3 = \input{../src/code/variables/zad_1_part_1/normal_k3_1.txt}
+        \hspace*{-0.12cm},
+        k4 = \input{../src/code/variables/zad_1_part_1/normal_k4_1.txt} \\
+        omin = \input{../src/code/variables/zad_1_part_1/normal_omin_1.txt}
+        \hspace*{-0.12cm},
+        omax = \input{../src/code/variables/zad_1_part_1/normal_omax_1.txt}]
+        {\includegraphics[width=0.3\linewidth,interpolate=false]{../src/img/zad_1_part_1/Ox_1.png}}
+    \hspace{0.1cm}
+    \subfloat[\fontsize{6}{6}\selectfont
+        k1 = \input{../src/code/variables/zad_1_part_1/stretched_k1_1.txt}
+        \hspace*{-0.12cm},
+        k2 = \input{../src/code/variables/zad_1_part_1/stretched_k2_1.txt} \\
+        k3 = \input{../src/code/variables/zad_1_part_1/stretched_k3_1.txt}
+        \hspace*{-0.12cm},
+        k4 = \input{../src/code/variables/zad_1_part_1/stretched_k4_1.txt} \\
+        omin = \input{../src/code/variables/zad_1_part_1/stretched_omin_1.txt}
+        \hspace*{-0.12cm},
+        omax = \input{../src/code/variables/zad_1_part_1/stretched_omax_1.txt}]
+        {\includegraphics[width=0.3\linewidth,interpolate=false]{../src/img/zad_1_part_1/HSOx_1.png}}
+    \hspace{0.1cm}
+    \subfloat[\fontsize{6}{6}\selectfont
+        k1 = \input{../src/code/variables/zad_1_part_1/equalized_k1_1.txt}
+        \hspace*{-0.12cm},
+        k2 = \input{../src/code/variables/zad_1_part_1/equalized_k2_1.txt} \\
+        k3 = \input{../src/code/variables/zad_1_part_1/equalized_k3_1.txt}
+        \hspace*{-0.12cm},
+        k4 = \input{../src/code/variables/zad_1_part_1/equalized_k4_1.txt} \\
+        omin = \input{../src/code/variables/zad_1_part_1/equalized_omin_1.txt}
+        \hspace*{-0.12cm},
+        omax = \input{../src/code/variables/zad_1_part_1/equalized_omax_1.txt}]
+        {\includegraphics[width=0.3\linewidth,interpolate=false]{../src/img/zad_1_part_1/HEOx_1.png}} \\
+    \caption{Zestawienie 1 dla \textbf{Obrazu 1}}
+    \label{pic: zad_1_part_1_1}
+\end{figure}
+
+%---------------------------------------------------------------------------
+%           MAKE THE IMAGE WIDER THAN THE LINEWIDTH AND PLACE IT IN THE CENTER
+%---------------------------------------------------------------------------
+\begin{figure}[h!]
+    \centering
+    \hspace*{-1cm}
+    \makebox[\linewidth][c]{\includegraphics[scale = 1, width=1.5\textwidth, trim = {0 1cm 0 3cm}, clip]{../src/img/zad_3_1.png}}
+    \caption{Kwantyzacja obrazu O1 w RGB za pomocą skryptu MATLAB}
+    \label{fig: Kwantyzacja RGB O1}
+\end{figure}
+
+%---------------------------------------------------------------------------
+%           CREATE A VECTOR GRAPHICS CHART WITH LABELS USING TikZ
+%---------------------------------------------------------------------------
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}
+        % the axis
+        \draw[<->] (12.2, 0) node[below right]{t, s} -- (0, 0) -- (0, 5.2) node[above]{$F_{1SP}, \frac{l}{min}$};
+        \draw[] (0, 2) node[above right]{$2 \frac{l}{min} $} -- (3.2, 2) -- (3.2, 2.8) node[above right]{$2.8 \frac{l}{min}$} -- (9, 2.8) -- (9, 3.0) node[above]{$3 \frac{l}{min}$} -- (9.3, 3.0) -- (9.3, 2.8) -- (9.6, 2.8) -- (9.6, 2.6) -- (9.9, 2.6) -- (9.9, 2.4) -- (10.2, 2.4) -- (10.2, 2.2) -- (10.5, 2.2) -- (10.5, 2.0) -- (10.8, 2.0) -- (12, 2.0) node[above left]{$2 \frac{l}{min}$};
+        \draw[<-] (9.9, 2.8) -- (10.5, 3.5) node[above right]{\tiny $\Delta -0.2 \frac{l}{min}$};
+    \end{tikzpicture}
+    \vspace*{1cm}
+    \begin{tikzpicture}
+        % the axis
+        \draw[<->] (12.2, 0) node[below right]{t, s} -- (0, 0) -- (0, 5.2) node[above]{$P_{h}, \%$};
+        \draw[] (0, 0) node[above right]{$0\%$} -- (1, 0) -- (1, 1) -- (2, 1) -- (2, 2) -- (3, 2) -- (3, 3) -- (4, 3) -- (4, 4) -- (4.3, 4) -- (4.3, 4.5) node[above right]{$90\%$} -- (5, 4.5) -- (5, 4) node[above right]{\tiny $80\%$} -- (5.5, 4) -- (5.5, 3) node[above right]{\tiny $60\%$} -- (6.5, 3) -- (6.5, 2)node[above right]{\tiny $40\%$} -- (7.5, 2) -- (7.5, 1) node[above right]{\tiny $20\%$} -- (8.5, 1) -- (8.5, 0) -- (9.5, 0) -- (9.5, 3) -- (12, 3) node[above left]{60\%};
+    \end{tikzpicture}
+    \caption{Metodyka pomiarów}
+\end{figure}
+
+%---------------------------------------------------------------------------
+%           PUT 2 FIGURES SIDEWAYS WITH THE ROTATED LABELS AS WELL
+%---------------------------------------------------------------------------
+\begin{sidewaysfigure}[h!]
+    \centering
+    \includegraphics[width = 0.9\linewidth]{../src/img/LPT/TS_Fsr.png}
+    \caption{\textbf{LPT}: Wykres Gantta dla $\mathbf{\bar{F}}$ przed zastosowaniem algorytmu TS}
+    \label{fig: TS LPT Fsr1}
+
+    \includegraphics[width = 0.9\linewidth]{../src/img/LPT/TS_Fsr_2.png}
+    \caption{\textbf{LPT}: Wykres Gantta dla $\mathbf{\bar{F}}$ po zastosowaniu algorytmu TS}
+    \label{fig: TS LPT Fsr2}
+\end{sidewaysfigure}
+
+%---------------------------------------------------------------------------
+%                   NORMAL TABLE WITH DIAGONAL HEADER
+%---------------------------------------------------------------------------
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \diagbox[]{Metoda}{Obraz} & {Lena}                                       & {Obraz własny} \\ \hline
+        Otsu                      & \input{../src/code/variables/otsuI1PSNR.txt} & \input{../src/code/variables/otsuI2PSNR.txt} \\ \hline
+        Dithering FS              & \input{../src/code/variables/fsI1PSNR.txt}   & \input{../src/code/variables/fsI2PSNR.txt}   \\ \hline
+        Dithering FS v2           & \input{../src/code/variables/fsmI1PSNR.txt}  & \input{../src/code/variables/fsmI2PSNR.txt}  \\ \hline
+    \end{tabular}
+    \caption{Tabela z wartościami PSNR dla zadania 1}
+    \label{table:zad_3_1}
+\end{table}
+
+%---------------------------------------------------------------------------
+%           TABLE WITH MULTILINE CELLS AND WITH DIAGONAL CELL FOR A HEADER
+%---------------------------------------------------------------------------
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \diagbox[width = 4.5cm]{Metoda}{Obraz}                              & {Lena}                   & {Obraz własny} \\ \hline
+        \multicolumn{1}{|p{4cm}|}{\centering Kwantyzacja 16\\ barw bez FS}  & \multirow{2}{*}{\input{../src/code/variables/nd16IPSNR_1.txt}}  & \multirow{2}{*}{\input{../src/code/variables/nd16IPSNR_2.txt}} \\ \hline
+        \multicolumn{1}{|p{4cm}|}{\centering Dithering FS\\ 16 barw}        & \multirow{2}{*}{\input{../src/code/variables/d16IPSNR_1.txt}}   & \multirow{2}{*}{\input{../src/code/variables/d16IPSNR_2.txt}} \\ \hline
+        \multicolumn{1}{|p{4cm}|}{\centering Dithering FS v2\\ 16 barw}     & \multirow{2}{*}{\input{../src/code/variables/dm16IPSNR_1.txt}}  & \multirow{2}{*}{\input{../src/code/variables/dm16IPSNR_2.txt}} \\ \hline
+        \multicolumn{1}{|p{4cm}|}{\centering Kwantyzacja 256\\ barw bez FS} & \multirow{2}{*}{\input{../src/code/variables/nd256IPSNR_1.txt}} & \multirow{2}{*}{\input{../src/code/variables/nd256IPSNR_2.txt}} \\ \hline
+        \multicolumn{1}{|p{4cm}|}{\centering Dithering FS\\ 256 barw}       & \multirow{2}{*}{\input{../src/code/variables/d256IPSNR_1.txt}}  & \multirow{2}{*}{\input{../src/code/variables/d256IPSNR_2.txt}} \\ \hline
+        \multicolumn{1}{|p{4cm}|}{\centering Dithering FS v2\\ 256 barw}    & \multirow{2}{*}{\input{../src/code/variables/dm256IPSNR_1.txt}} & \multirow{2}{*}{\input{../src/code/variables/dm256IPSNR_2.txt}} \\ \hline
+    \end{tabular}
+    \caption{Tabela z wartościami PSNR dla zadania 2}
+    \label{table:zad_3_2}
+\end{table}
+
+
+%---------------------------------------------------------------------------
+%                   FAKE BULLET LIST INSIDE THE ALIGN ENV
+%---------------------------------------------------------------------------
+\begin{align*}
+    &\hspace*{-3.8cm}\text{\textbullet\ długość uszeregowania} & \hspace*{-4cm}&\text{- } C_{max} \\
+    &\hspace*{-3.8cm}\text{\textbullet\ średni czas przepływu} & \hspace*{-4cm}&\text{- } \bar{F} \\
+    &\hspace*{-3.8cm}\text{\textbullet\ maksymalne opóźnienie} & \hspace*{-4cm}&\text{- } L_{max}
+\end{align*}
+
+%---------------------------------------------------------------------------
+%                   MULTICOLUMN WITH FAKE BULLET LIST TO ALIGN THE TEXT
+%---------------------------------------------------------------------------
+\begin{multicols*}{2}
+    \raggedcolumns
+    \begin{enumerate}
+        \item LPT (rysunek nr \ref{fig: konstrukcyjne LPT})
+            \begin{align*}
+                \hspace*{-0.7cm}\text{\textbullet}\ &C_{max} &\hspace*{-0.5cm}&= 22, & &k =  0.3 \\
+                \hspace*{-0.7cm}\text{\textbullet}\ &\bar{F} &\hspace*{-0.5cm}&= 14.7, & &k =  0.45 \\
+                \hspace*{-0.7cm}\text{\textbullet}\ &L_{max} &\hspace*{-0.5cm}&= 7, & &k = 0.25
+            \end{align*}
+        \item SPT (rysunek nr \ref{fig: konstrukcyjne SPT})
+            \begin{align*}
+                \hspace*{-0.7cm}\text{\textbullet}\ &C_{max} &\hspace*{-0.5cm}&= 24, & &k =  0.3 \\
+                \hspace*{-0.7cm}\text{\textbullet}\ &\bar{F} &\hspace*{-0.5cm}&= 13.1, & &k =  0.45 \\
+                \hspace*{-0.7cm}\text{\textbullet}\ &L_{max} &\hspace*{-0.5cm}&= 14, & &k = 0.25
+            \end{align*}
+        \item ERD (rysunek nr \ref{fig: konstrukcyjne ERD})
+            \begin{align*}
+                \hspace*{-0.7cm}\text{\textbullet}\ &C_{max} &\hspace*{-0.5cm}&= 25, & &k =  0.3 \\
+                \hspace*{-0.7cm}\text{\textbullet}\ &\bar{F} &\hspace*{-0.5cm}&= 14.2, & &k =  0.45 \\
+                \hspace*{-0.7cm}\text{\textbullet}\ &L_{max} &\hspace*{-0.5cm}&= 13, & &k = 0.25
+                \columnbreak
+            \end{align*}
+        \item EED (rysunek nr \ref{fig: konstrukcyjne EED})
+            \begin{align*}
+                \hspace*{-0.7cm}\text{\textbullet}\ &C_{max} &\hspace*{-0.5cm}&= 26, & &k =  0.3 \\
+                \hspace*{-0.7cm}\text{\textbullet}\ &\bar{F} &\hspace*{-0.5cm}&= 16, & &k =  0.45 \\
+                \hspace*{-0.7cm}\text{\textbullet}\ &L_{max} &\hspace*{-0.5cm}&= 16, & &k = 0.25
+            \end{align*}
+        \vspace*{-1.0cm}
+        \item EDD (rysunek nr \ref{fig: konstrukcyjne EDD})
+        \vspace*{-0.1cm}
+            \begin{align*}
+                \hspace*{-0.7cm}\text{\textbullet}\ &C_{max} &\hspace*{-0.5cm}&= 24, & &k =  0.3 \\
+                \hspace*{-0.7cm}\text{\textbullet}\ &\bar{F} &\hspace*{-0.5cm}&= 15.3, & &k =  0.45 \\
+                \hspace*{-0.7cm}\text{\textbullet}\ &L_{max} &\hspace*{-0.5cm}&= 11, & &k = 0.25
+            \end{align*}
+    \end{enumerate}
+\end{multicols*}
