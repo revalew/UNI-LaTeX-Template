@@ -8,6 +8,22 @@
 
 
 %---------------------------------------------------------------------------
+%           CREATING A SECTION TITLE WITH DIFFERENT FORM IN TOC AND IN THE ACTUAL SECTION TO ENABLE "fragile commands" TO BE USED AS HEADERS
+%---------------------------------------------------------------------------
+\section[\texorpdfstring{Exercise About BibTeX}{Exercise About \BibTeX{}}]{Exercise About \BibTeX{}}
+
+%---------------------------------------------------------------------------
+%           CHANGE THE SPACING IN THE ITEMIZE ENVIRONMENT
+%---------------------------------------------------------------------------
+\setlength\itemsep{-0.5em} % GLOBAL SETTING FOR THE ENTIRE DOCUMENT
+\itemsep{-0.5em} % LOCAL SETTING FOR JUST THIS ITEMIZE ENV
+
+\begin{itemize}[topsep=8pt,itemsep=4pt,partopsep=4pt, parsep=4pt] % LOCAL CHANGE
+    \item Some text
+    \item Some text
+\end{itemize}
+
+%---------------------------------------------------------------------------
 %           CREATING "NICE" SUBFLOATS WITH TEXT INPUTS AND "INPUT SPACE CORRECTION"
 %---------------------------------------------------------------------------
 \begin{figure}[h!]
@@ -28,29 +44,8 @@
         omax = \input{../src/code/variables/zad_1_part_1/normal_omax_1.txt}]
         {\includegraphics[width=0.3\linewidth,interpolate=false]{../src/img/zad_1_part_1/Ox_1.png}}
     \hspace{0.1cm}
-    \subfloat[\fontsize{6}{6}\selectfont
-        k1 = \input{../src/code/variables/zad_1_part_1/stretched_k1_1.txt}
-        \hspace*{-0.12cm},
-        k2 = \input{../src/code/variables/zad_1_part_1/stretched_k2_1.txt} \\
-        k3 = \input{../src/code/variables/zad_1_part_1/stretched_k3_1.txt}
-        \hspace*{-0.12cm},
-        k4 = \input{../src/code/variables/zad_1_part_1/stretched_k4_1.txt} \\
-        omin = \input{../src/code/variables/zad_1_part_1/stretched_omin_1.txt}
-        \hspace*{-0.12cm},
-        omax = \input{../src/code/variables/zad_1_part_1/stretched_omax_1.txt}]
+    \subfloat[\fontsize{6}{6}\selectfont]
         {\includegraphics[width=0.3\linewidth,interpolate=false]{../src/img/zad_1_part_1/HSOx_1.png}}
-    \hspace{0.1cm}
-    \subfloat[\fontsize{6}{6}\selectfont
-        k1 = \input{../src/code/variables/zad_1_part_1/equalized_k1_1.txt}
-        \hspace*{-0.12cm},
-        k2 = \input{../src/code/variables/zad_1_part_1/equalized_k2_1.txt} \\
-        k3 = \input{../src/code/variables/zad_1_part_1/equalized_k3_1.txt}
-        \hspace*{-0.12cm},
-        k4 = \input{../src/code/variables/zad_1_part_1/equalized_k4_1.txt} \\
-        omin = \input{../src/code/variables/zad_1_part_1/equalized_omin_1.txt}
-        \hspace*{-0.12cm},
-        omax = \input{../src/code/variables/zad_1_part_1/equalized_omax_1.txt}]
-        {\includegraphics[width=0.3\linewidth,interpolate=false]{../src/img/zad_1_part_1/HEOx_1.png}} \\
     \caption{Zestawienie 1 dla \textbf{Obrazu 1}}
     \label{pic: zad_1_part_1_1}
 \end{figure}
@@ -114,6 +109,57 @@
     \end{tabular}
     \caption{Tabela z wartościami PSNR dla zadania 1}
     \label{table:zad_3_1}
+\end{table}
+
+%---------------------------------------------------------------------------
+%           TABLE WITH COLORED CELLS / ROWS / COLUMNS
+%---------------------------------------------------------------------------
+% Default colors are black, white, red, green, blue, cyan, magenta, yellow
+\cellcolor{blue!25}\color{red}{$240.0$}
+\rowcolor{}
+\columncolor{}
+
+%---------------------------------------------------------------------------
+%           TABLE WITH DIAGONAL HEADER AND MULTICOLUMN HEADER
+%---------------------------------------------------------------------------
+\begin{table}[H]
+    % \centering
+    \hspace*{-0.27cm}
+    \makebox[1\linewidth][c]{
+        \begin{tabular}{|c|c|c|c|c|c|c|}
+        \hline
+        \diagbox[]{\textbf{Reguła}}{\textbf{Funkcja} \\ \textbf{celu}} & {$\mathbf{FC_{1}}$} & {$\mathbf{FC_{2}}$} & {$\mathbf{FC_{3}}$} & {\textbf{WFC}} & \multicolumn{2}{c|}{\textbf{Wagi i oznaczenia funkcji celu}} \\ \hline
+        {\textbf{FIFO}} & {$79.0$}  & {$211.0$} & {$1340.0$} & {\cellcolor{blue!25}\color{red}{$240.0$}}   & {$k_{1}$} & {$0.3$} \\ \hline
+        {\textbf{LIFO}} & {$86.0$}  & {$215.0$} & {$1140.0$} & {$$}                     & {$k_{2}$} & {$0.45$} \\ \hline
+        {\textbf{SPT}}  & {$71.0$}  & {$197.0$} & {$1260.0$} & {$$}                     & {$k_{3}$} & {$0.25$} \\ \hline
+        {\textbf{LPT}}  & {$162.0$} & {$224.0$} & {$1310.0$} & {$$}                     & {$FC_{1}$} & {maksymalny czas oczekiwania zleceń} \\ \hline
+        {\textbf{LWR}}  & {$86.0$}  & {$209.0$} & {$1140.0$} & {$$}                     & {$FC_{2}$} & {termin zakończenia wykonania wszystkich zleceń} \\ \hline
+        {\textbf{EDD}}  & {$99.0$}  & {$186.0$} & {$1155.0$} & {$$}                     & {$FC_{3}$} & {koszt przezbrojeń maszyn} \\ \hline
+    \end{tabular}
+    }
+    \caption{Tabela przedstawiająca obliczone wartości WFC w zależności od zastosowanej reguły}
+    \label{table:zad_3_2}
+\end{table}
+
+%---------------------------------------------------------------------------
+%           TABLE WITH MULTIROW CELLS
+%---------------------------------------------------------------------------
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|l|c|c|c|c|}
+        \hline
+        Obraz   & Format               & Rozmiar, kB & PSNR     & MAE    & NCD    \\ \hline
+        \multirow{7}{*}{\begin{sideways}psnrsap\end{sideways}} 
+                & BMP                  & 2221,61     & $\infty$ & 0      & 0      \\ \cline{2-6}
+                & PNG                  & 85,10       & 35,961   & 0,677  & 9,372  \\ \cline{2-6}
+                & GIF                  & 128,00      & 35,961   & 0,677  & 9,372  \\ \cline{2-6}
+                & JPEG (q1 = 20)       & 54,70       & 24,422   & 7,47   & 54,006 \\ \cline{2-6}
+                & JPEG (q2 = 100)      & 455,00      & 30,983   & 2,037  & 23,656 \\ \cline{2-6}  
+                & JPEG2000 (Q1 = 50)   & 108,00      & 33,797   & 2,558  & 18,621 \\ \cline{2-6}  
+                & JPEG2000 (Q2 = 1000) & 448,00      & 101,58   & 0      & 0      \\ \hline
+    \end{tabular}
+    \caption{Porównanie wskaźników}
+    \label{synthetic_colorScreenshot_table}
 \end{table}
 
 %---------------------------------------------------------------------------
