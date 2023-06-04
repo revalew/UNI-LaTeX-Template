@@ -56,3 +56,9 @@ I1 = "../img/CFA_sRGB/IMG_015_srgb_CFA.png";
 plotName = strsplit(I1, "/");
 plotName = plotName(end);
 saveas(gcf, "../img/POROWNANIE_" + plotName{1});
+
+% ----------------------------------------------------------------------------------
+%               SAVE THE MATRIX TO A FILE
+% ----------------------------------------------------------------------------------
+kernel = [-1 -1 -1; -1 8 -1; -1 -1 -1];
+writematrix(kernel,'./variables/kernel/kernel_size.txt','Delimiter','tab')
