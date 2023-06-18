@@ -13,10 +13,15 @@
 \section[\texorpdfstring{Exercise About BibTeX}{Exercise About \BibTeX{}}]{Exercise About \BibTeX{}}
 
 %---------------------------------------------------------------------------
-%           CHANGE THE SPACING IN THE ITEMIZE ENVIRONMENT
+%           CHANGE THE SPACING IN THE ITEMIZE / ENUMERATE ENVIRONMENT
 %---------------------------------------------------------------------------
 \setlength\itemsep{-0.5em} % GLOBAL SETTING FOR THE ENTIRE DOCUMENT
 \itemsep{-0.5em} % LOCAL SETTING FOR JUST THIS ITEMIZE ENV
+
+% THIS SEEMS TO BE THE ONE I LIKE THE MOST.
+\begin{enumerate}[topsep=-0.1em,itemsep=-0.3em]
+    \item example.
+\end{enumerate}
 
 \begin{itemize}[topsep=8pt,itemsep=4pt,partopsep=4pt, parsep=4pt] % LOCAL CHANGE
     \item Some text
