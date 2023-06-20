@@ -49,6 +49,10 @@ Temat: Wyznaczanie liczby barw w obrazie (L03).
 \newcommand{\inputmytitle}{
     \renewcommand*{\figurename}{Rys.} % these commands are defining the specific format for captions of figures and tables respectively, and it's a document-specific choice rather than something that should be applied globally to all documents
     \renewcommand*{\tablename}{Tab.}
+
+    \renewcommand{\lstlistingname}{Kod}% Listing -> Algorithm
+    % \renewcommand{\lstlistlistingname}{Spis \lstlistingname ów}% List of Listings -> List of Algorithms
+
     \newgeometry{left=1.5cm, right=1.5cm, top=2.5cm, bottom=0.1cm} % Change the bottom margin
     \maketitle % generates the title of the document based on information provided in the preamble of the document, such as title, authors and date
     \restoregeometry % Go back to the original margins

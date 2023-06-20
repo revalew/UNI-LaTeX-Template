@@ -5,9 +5,11 @@
 
 \input{./preamble.tex} % include all the packages in separate preamble file
 
+\input{./code_styles.tex} % styles for code listings
+
 \input{./titlepage.tex} % include separate titlepage to make the code cleaner
 
-\input{includeMATLAB.tex} % function to include MATLAB code with \includematlab[]{\section{Code}}{path/to/the/file.m} the 1st argument can be changed to \subsection{whatever} I also added the optional arguments in the beginning: new (just testing), num - adds the number at the bottom of the matlab code AND at the end: \fontsize{14}{10}\selectfont\ttfamily default
+\input{./includeMATLAB.tex} % function to include MATLAB code with \includematlab[]{\section{Code}}{path/to/the/file.m} the 1st argument can be changed to \subsection{whatever} I also added the optional arguments in the beginning: new (just testing), num - adds the number at the bottom of the matlab code AND at the end: \fontsize{14}{10}\selectfont\ttfamily default
 
 %---------------------------------------------------------------------------
 %                                   DOCUMENT
