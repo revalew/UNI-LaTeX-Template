@@ -62,7 +62,7 @@ jobs:
             pandoc
             --data-dir=./tex
             -s ./tex/template.tex
-            --toc=true
+            --toc
             --resource-path=.:tex
             -f latex+raw_tex
             -t docx
