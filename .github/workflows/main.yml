@@ -26,10 +26,10 @@ jobs:
           # allows you to break string into multiple lines
           args: >-
             pandoc
-            ./tex/template.tex 
-            -f latex 
-            -t docx 
-            -o output/template.docx 
+            ./tex/template.tex
+            -f latex+raw_tex
+            -t docx
+            -o output/template.docx
       - uses: actions/upload-artifact@v3
         with:
           name: manuscript
