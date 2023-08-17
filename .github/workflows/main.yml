@@ -35,7 +35,7 @@ jobs:
         with:
           name: PDF and docx
           path: |
-            docx_version/
+            template.docx
             tex/template.pdf
 
       - run: mv tex/template.pdf dist/template.pdf && mv template.docx dist/template.docx
