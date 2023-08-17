@@ -38,7 +38,7 @@ jobs:
             docx_version/
             tex/template.pdf
 
-      - run: mv tex/template.pdf dist/template.pdf && mv tex/template.docx dist/template.docx
+      - run: mv tex/template.pdf dist/template.pdf && mv template.docx dist/template.docx
 
       - name: Commit report
         run: |
