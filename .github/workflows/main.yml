@@ -1,7 +1,9 @@
 name: Build LaTeX document
 on:
   push:
-      branches: [ "main" ]
+      branches: [ "master" ]
+  pull_request:
+      branches: [ "master" ]
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
