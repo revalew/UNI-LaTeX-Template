@@ -23,8 +23,8 @@ jobs:
       - run: mkdir output
       - uses: docker://pandoc/core:2.9
         with:
-          args: >-
-            -s tex/template.tex 
+          args: >- # allows you to break string into multiple lines
+            -s ./tex/template.tex 
             -f latex 
             -t docx 
             -o output/template.docx 
