@@ -20,6 +20,7 @@ jobs:
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v3
+
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
@@ -51,7 +52,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: mkdir output && cd ./tex/
+
+      - run: mkdir output && cd tex/
+      
       - uses: docker://pandoc/core:2.9
         with:
           # allows you to break string into multiple lines
