@@ -58,10 +58,12 @@ jobs:
           # allows you to break string into multiple lines
           args: >-
             pandoc
+            --resource-path=./tex:tex
             ./tex/template.tex
             -f latex+raw_tex
             -t docx
             -o output/template.docx
+            
       - uses: actions/upload-artifact@v3
         with:
           name: docx_version
