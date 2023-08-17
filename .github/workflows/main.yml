@@ -59,11 +59,12 @@ jobs:
         with:
           # https://pandoc.org/MANUAL.html
           # allows you to break string into multiple lines
+          # https://github.com/rekka/latex-flatten -> last hope if everything else will fail me
           args: >-
             pandoc
             --data-dir=./tex
             -s ./tex/template.tex
-            --resource-path=.:tex
+            --resource-path ./tex
             -f latex+raw_tex
             -t docx
             -o output/template.docx
