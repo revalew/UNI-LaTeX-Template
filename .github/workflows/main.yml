@@ -23,8 +23,9 @@ jobs:
       - run: mkdir output
       - uses: docker://pandoc/core:2.9
         with:
-          args: >- # allows you to break string into multiple lines
-            /home/runner/work/UNI-LaTeX-Template/UNI-LaTeX-Template/tex/template.tex 
+          # allows you to break string into multiple lines
+          args: >-
+            -s ./tex/template.tex 
             -f latex 
             -t docx 
             -o output/template.docx 
