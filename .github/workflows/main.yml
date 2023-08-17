@@ -26,19 +26,18 @@ jobs:
           working_directory: tex
           root_file: template.tex
 
+      - name: Download docx file
       - uses: actions/download-artifact@v3
         with:
           name: docx_version
 
-      - name: Upload PDF file
+      - run: mv tex/template.pdf dist/template.pdf && mv template.docx dist/template.docx
+
+      - name: Upload PDF and docx files
         uses: actions/upload-artifact@v3
         with:
           name: PDF and docx
-          path: |
-            template.docx
-            tex/template.pdf
-
-      - run: mv tex/template.pdf dist/template.pdf && mv template.docx dist/template.docx
+          path: dist/
 
       - name: Commit report
         run: |
@@ -52,18 +51,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: mkdir output
+      - run: mkdir output && cd ./tex/
       - uses: docker://pandoc/core:2.9
         with:
           # allows you to break string into multiple lines
           args: >-
             pandoc
-            --resource-path=./tex:tex
-            ./tex/template.tex
+            -s ./tex/template.tex
             -f latex+raw_tex
             -t docx
             -o output/template.docx
-            
+
       - uses: actions/upload-artifact@v3
         with:
           name: docx_version
