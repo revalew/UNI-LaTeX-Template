@@ -53,16 +53,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - run: mkdir output && cd tex/
+      - run: mkdir output
 
       - uses: docker://pandoc/core:2.9
         with:
+          # https://pandoc.org/MANUAL.html
           # allows you to break string into multiple lines
           args: >-
             pandoc
             --data-dir=./tex
             -s ./tex/template.tex
-            --toc
             --resource-path=.:tex
             -f latex+raw_tex
             -t docx
