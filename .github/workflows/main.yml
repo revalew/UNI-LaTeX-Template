@@ -35,8 +35,8 @@ jobs:
         with:
           name: PDF and docx
           path: |
+            docx_version/
             tex/template.pdf
-            docx_version
 
       - name: Commit report
         run: |
