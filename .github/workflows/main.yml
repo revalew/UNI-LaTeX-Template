@@ -25,7 +25,7 @@ jobs:
         with:
           # allows you to break string into multiple lines
           args: >-
-            -s ./tex/template.tex 
+            ./tex/template.tex 
             -f latex 
             -t docx 
             -o output/template.docx 
@@ -33,3 +33,15 @@ jobs:
         with:
           name: manuscript
           path: output
+
+# args: >-
+#             -s comutation-manuscript.tex # The s flag stands for standalone and it takes the name of the 
+#             -f latex # FROM LaTeX
+#             -t docx  # TO docx
+#             -o output/comutation-manuscript.docx # The output file path
+#             --bibliography reference_files/references.bib # The .bib citation files to use. Each use of the --bibliography flag adds another file that pandoc will use.
+#             --bibliography reference_files/R_citations.bib 
+#             --bibliography reference_files/additional_citations.bib 
+#             --csl nature-genetics.csl  # The Citation Style Language (CSL) file with information on how to create the citations and bibliography. Others can be found at this GitHub repository or downloaded from Zotero.
+#                   https://github.com/citation-style-language/styles
+#                   https://www.zotero.org/styles?q=nature
