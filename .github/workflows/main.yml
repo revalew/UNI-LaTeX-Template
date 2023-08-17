@@ -24,15 +24,10 @@ jobs:
       - uses: docker://pandoc/core:2.9
         with:
           args: >- # allows you to break string into multiple lines
-            # -s ./tex/template.tex 
-            /github/workspace/tex/template.tex 
+            /home/runner/work/UNI-LaTeX-Template/UNI-LaTeX-Template/tex/template.tex 
             -f latex 
             -t docx 
             -o output/template.docx 
-            # --bibliography reference_files/references.bib 
-            # --bibliography reference_files/R_citations.bib 
-            # --bibliography reference_files/additional_citations.bib 
-            # --csl nature-genetics.csl            
       - uses: actions/upload-artifact@v3
         with:
           name: manuscript
