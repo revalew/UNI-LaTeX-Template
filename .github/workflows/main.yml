@@ -38,6 +38,7 @@ jobs:
         with:
           name: PDF and docx
           path: dist/
+          retention-days: 1
 
       - name: Commit report
         run: |
@@ -59,7 +60,10 @@ jobs:
           # allows you to break string into multiple lines
           args: >-
             pandoc
+            --data-dir=./tex
             -s ./tex/template.tex
+            --toc=true
+            --resource-path=.:tex
             -f latex+raw_tex
             -t docx
             -o output/template.docx
@@ -68,6 +72,7 @@ jobs:
         with:
           name: docx_version
           path: output
+          retention-days: 1
 
 # convert_via_pandoc:
 #   args: >-
