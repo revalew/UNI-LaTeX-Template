@@ -1,9 +1,26 @@
 % ----------------------------------------------------------------------------------
+%               CREATE A DIRECTORY IF IT DOES NOT EXIST
+% ----------------------------------------------------------------------------------
+global imgDir % Also add this inside the functions so that it can be accessed from there
+imgDir = './img/';
+if ~exist(imgDir, 'dir')
+    mkdir(imgDir);
+end
+
+% ----------------------------------------------------------------------------------
 %               SAVE THE VALUE OF THE VARIABLE TO THE FILE
 % ----------------------------------------------------------------------------------
 % SAVE the values for easy LaTeX input
 fileID = fopen('./variables/zad_2_part_1/original_k1_' + string(number) + '.txt','w');
 fprintf(fileID, '%.4f', k1);
+fclose(fileID);
+
+% ----------------------------------------------------------------------------------
+%               READ THE VALUE OF THE VARIABLE FROM THE FILE
+% ----------------------------------------------------------------------------------
+% SAVE the values for easy LaTeX input
+fileID = fopen(string(varDir) + string(activationFunc{i}) + '.txt', 'r');
+noOfNeurons(i) = fscanf(fileID, '%d');
 fclose(fileID);
 
 % ----------------------------------------------------------------------------------
@@ -62,3 +79,34 @@ saveas(gcf, "../img/POROWNANIE_" + plotName{1});
 % ----------------------------------------------------------------------------------
 kernel = [-1 -1 -1; -1 8 -1; -1 -1 -1];
 writematrix(kernel,'./variables/kernel/kernel_size.txt','Delimiter','tab')
+
+
+% ----------------------------------------------------------------------------------
+%               DISPLAY THE FIGURE IN FULLSCREEN AND SAVE IT
+% ----------------------------------------------------------------------------------
+f = figure('Position', get(0, 'Screensize')); % Open the figure in "fullscreen"
+    plot(noOfNeurons, ElearnMean, 'LineWidth', 2);
+    set(gca, "FontSize", 15);
+    hold on
+    testResult = plot(noOfNeurons, EtestMean,'LineWidth', 2);
+    hold off
+    legend('Zbiór uczący', 'Zbiór testowy');
+    xlabel('Liczba neuronów');
+    ylabel('Średni MSE');
+    grid on
+    title("MSE - " + string(activationFunc))
+
+    % add the datatip at minimum
+    minIndex = find(EtestMean == min(EtestMean));
+    datatip(testResult, noOfNeurons(minIndex), EtestMean(minIndex));
+
+    saveas(f, string(imgDir) + "MSE_" + string(activationFunc) + ".png");
+
+    
+% ----------------------------------------------------------------------------------
+%               COMPOSE A LEGEND FORM AN ARRAY OF STRINFGS
+% ----------------------------------------------------------------------------------
+activationFunc = {'tansig', 'logsig', 'purelin'};
+plotLegend = ['Prawdziwa funkcja', 'Model neuronowy ' + string(activationFunc)];
+legend(plotLegend)
+% legend('Prawdziwa funkcja', 'Model neuronowy ' + string(activationFunc{1}), 'Model neuronowy ' + string(activationFunc{2}), 'Model neuronowy ' + string(activationFunc{3}));
