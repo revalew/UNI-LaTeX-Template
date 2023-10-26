@@ -1,1 +1,4 @@
-dist/
+dist/auxiliary
+dist/template.docx
+dist/template.pdf
+dist/template.synctex.gz
