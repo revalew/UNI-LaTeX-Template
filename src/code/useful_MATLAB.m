@@ -23,6 +23,23 @@ fileID = fopen(string(varDir) + string(activationFunc{i}) + '.txt', 'r');
 noOfNeurons(i) = fscanf(fileID, '%d');
 fclose(fileID);
 
+
+% ----------------------------------------------------------------------------------
+%               LINK ThE AXES TO ZOOM ON ALL SUBPLOTS SIMULTANEOUSLY
+% ----------------------------------------------------------------------------------
+f = figure('Position', get(0, 'Screensize') - [0 0 60 80]); % Open the figure in "fullscreen" 60 -> width; 80 -> height
+        ax(1) = subplot (1, 3, 1);
+            imshow(I);
+            xlabel("Obraz oryginalny");
+        ax(2) = subplot(1, 3, 2);
+            imshow(threshI);
+            xlabel(["Analiza histogramu"; "Wartość progu: " + num2str(desiredThresh) ]);
+        ax(3) = subplot(1, 3, 3);
+            imshow(otsuI);
+            xlabel(["Metoda Otsu"; "Wartość progu: " + num2str(otsuThresh)]);
+        linkaxes(ax)
+
+
 % ----------------------------------------------------------------------------------
 %               EXAMPLE OF THE LABEL FORMATTING WITH MULTIPLE LINES AND REDUCED FONT SIZE
 % ----------------------------------------------------------------------------------
@@ -85,6 +102,7 @@ writematrix(kernel,'./variables/kernel/kernel_size.txt','Delimiter','tab')
 %               DISPLAY THE FIGURE IN FULLSCREEN AND SAVE IT
 % ----------------------------------------------------------------------------------
 f = figure('Position', get(0, 'Screensize')); % Open the figure in "fullscreen"
+f = figure('Position', get(0, 'Screensize') - [0 0 60 80]); % Open the figure in "fullscreen" 60 -> width; 80 -> height
     plot(noOfNeurons, ElearnMean, 'LineWidth', 2);
     set(gca, "FontSize", 15);
     hold on

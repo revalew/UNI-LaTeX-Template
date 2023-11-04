@@ -6,6 +6,7 @@
 			"name": "latexmk",
 			"command": "latexmk",
 			"args": [
+				"-cd", // add this to change the directory to the file from which it has to be called
 				"-synctex=1",
 				"-interaction=nonstopmode",
 				"-file-line-error",
@@ -21,6 +22,7 @@
 			"name": "xelatex",
 			"command": "xelatex",
 			"args": ["-synctex=1", "-interaction=nonstopmode", "-file-line-error", "-output-directory=%OUTDIR%", "%DOC%"],
+			// "args": ["-synctex=1", "-interaction=nonstopmode", "-file-line-error", "-output-directory=dist", "%DOC%"], // for chapters
 			"env": {}
 		},
 		{
@@ -60,11 +62,14 @@
 		}
 	],
 	"latex-workshop.latex.outDir": "./../dist",
-	"latex-workshop.latex.search.rootFiles.include": ["**/*.tex"],
+	"latex-workshop.latex.search.rootFiles.include": ["**/tex/*.tex", "**/tex/chapters/*.tex"],
 	"latex-workshop.view.pdf.zoom": "page-fit",
-	"latex-workshop.latex.clean.subfolder.enabled": true, // can clean auxilary files in subfolders (which i have specified with auxdir in latexmk)
-	"latex-workshop.message.error.show": false, // annoying because it requires closing it manualy
+	"latex-workshop.latex.clean.subfolder.enabled": true, // can clean auxiliary files in subfolders (which i have specified with auxdir in latexmk)
+	"latex-workshop.message.error.show": false, // annoying because it requires closing it manually
 	"latex-workshop.message.warning.show": false, // compilation error => can already see the red "x" and no of problems so just annoying
 	// "latex-workshop.latex.autoClean.run": "onBuilt", // testing
-	"latex-workshop.latex.autoBuild.interval": 2000
+	"latex-workshop.latex.autoBuild.interval": 2000,
+	"latex-workshop.latex.rootFile.doNotPrompt": true,
+	"latex-workshop.latex.magic.args": ["-synctex=1", "-interaction=nonstopmode", "-file-line-error", "%DOC%", "-cd"]
+	// "latex-workshop.latex.rootFile.useSubFile": true,
 }
