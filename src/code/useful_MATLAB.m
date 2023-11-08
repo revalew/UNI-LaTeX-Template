@@ -27,6 +27,7 @@ fclose(fileID);
 % ----------------------------------------------------------------------------------
 %               LINK ThE AXES TO ZOOM ON ALL SUBPLOTS SIMULTANEOUSLY
 % ----------------------------------------------------------------------------------
+% DO NOT LINK AXES WITH DIFFERENT SCALES - LIKE IMAGE AND ITS HISTOGRAM
 f = figure('Position', get(0, 'Screensize') - [0 0 60 80]); % Open the figure in "fullscreen" 60 -> width; 80 -> height
         ax(1) = subplot (1, 3, 1);
             imshow(I);

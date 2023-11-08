@@ -4,10 +4,28 @@
 
 \documentclass[12pt, titlepage]{article} % sets the class of the document as an article with 12pt font size and title page
 
+
+\newcommand{\logoType}{pl} % can also be "en"
+
+\newcommand{\groupName}{AiR gr. 5}
+\newcommand{\authorName}{Maksymilian Kisiel}
+\newcommand{\secondAuthorName}{} % John Dere
+\newcommand{\thirdAuthorName}{} % Hugh Janus
+
+\newcommand{\includeDepartment}{no} % obviously can also be "yes"
+\newcommand{\department}{Wydział Automatyki, Elektroniki i~Informatyki}
+
+\newcommand{\subjectName}{Laboratorium \\Metod Sztucznej Inteligencji}
+\newcommand{\exNumber}{4}
+\newcommand{\exTopic}{Klasyfikacja danych.}
+
+
+
 \input{./preamble.tex} % include all the packages in separate preamble file
 \input{./code_styles.tex} % styles for code listings
 \input{./titlepage.tex} % include separate titlepage to make the code cleaner
-% \input{./includeMATLAB.tex} % function to include MATLAB code with \includematlab[]{\section{Code}}{path/to/the/file.m} the 1st argument can be changed to \subsection{whatever} I also added the optional arguments in the beginning: new (just testing), num - adds the number at the bottom of the matlab code AND at the end: \fontsize{14}{10}\selectfont\ttfamily default
+\input{./includeMATLAB.tex} % function to include MATLAB code with \includematlab[]{\section{Code}}{path/to/the/file.m} the 1st argument can be changed to \subsection{whatever} I also added the optional arguments in the beginning: new (just testing), num - adds the number at the bottom of the matlab code AND at the end: \fontsize{14}{10}\selectfont\ttfamily default
+
 
 %---------------------------------------------------------------------------
 %                                   DOCUMENT
