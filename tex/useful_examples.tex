@@ -7,6 +7,13 @@
 
 
 %---------------------------------------------------------------------------
+%           ADD LINE BREAK TO TABLE OF CONTENTS
+%---------------------------------------------------------------------------
+\addtocontents{toc}{\protect\newpage} % add linebreak to new page in table of contents; can also try "\goodbreak" but I did not test that one
+
+
+
+%---------------------------------------------------------------------------
 %           CHANGE THE ENUMERATE ENVIRONMENT STYLE BETWEEN "a), b), etc." and "1., 2., etc."
 %---------------------------------------------------------------------------
 % \begin{enumerate}[label=\alph*)]
