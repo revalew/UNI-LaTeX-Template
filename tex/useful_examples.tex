@@ -7,6 +7,25 @@
 
 
 %---------------------------------------------------------------------------
+%           ADD NICE CODE FRAGMENTS
+%---------------------------------------------------------------------------
+\begin{lstlisting}[language=Python, style=allSettingsStyle, caption={Fragment kody tworzący prymityw \textbf{Sphere}}, label={code: primitive sphere}, numbers=none]
+    AttributeBegin
+        NamedMaterial "RightWall"
+        Translate 0 .5 0
+        Rotate 90 1 1 0
+        Shape "sphere"
+            "float radius" [.5]
+            "float phimax" 90
+    AttributeEnd
+\end{lstlisting}
+
+
+\lstinputlisting[language=Python, style=allSettingsStyle, caption={Fragment otrzymanej kalibracji dla metody \textbf{findChessboardCorners()}}, label={code: findChessboardCorners calibration}, frame=single, breaklines=true, breakatwhitespace=true, basicstyle=\fontsize{10}{5}\selectfont\ttfamily]{../src/code/findChessboardCorners.json}
+
+
+
+%---------------------------------------------------------------------------
 %           ADD LINE BREAK TO TABLE OF CONTENTS
 %---------------------------------------------------------------------------
 \addtocontents{toc}{\protect\newpage} % add linebreak to new page in table of contents; can also try "\goodbreak" but I did not test that one
@@ -154,6 +173,39 @@
 \cellcolor{blue!25}\color{red}{$240.0$}
 \rowcolor{}
 \columncolor{}
+
+
+%---------------------------------------------------------------------------
+%           SIMPLE TABLE WITH MULTI-ROW CELLS
+%---------------------------------------------------------------------------
+
+\newcommand{\subjectWeekDay}{Czwartek,}
+\newcommand{\subjectHours}{10:00-13:15}
+
+\begin{table}[H]
+    \centering
+    % \hspace*{-0.27cm}
+    \makebox[1\linewidth][c]{
+        \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        \multicolumn{6}{|p{20cm}|}{\centering \vspace{.3cm}\empty
+        
+        \fontsize{22}{10}\selectfont\textbf{\subjectName}
+        
+        } \\ \hline
+        % \multicolumn{1}{|p{3cm}|}{\centering 2024/2025} & \multirow{2}{*}{Termin} & \multicolumn{1}{|p{3cm}|}{\centering Rodzaj studiów} & \multicolumn{1}{|p{3cm}|}{\centering Kierunek} & \multicolumn{1}{|p{3cm}|}{\centering Prowadzący} & \multicolumn{1}{|p{3cm}|}{\centering Grupa} \\ \hline
+
+        \multicolumn{1}{|p{3cm}|}{\centering Rok akademicki} & \multicolumn{1}{p{2.5cm}|}{\centering Termin} & \multicolumn{1}{p{3cm}|}{\centering Rodzaj studiów} & \multicolumn{1}{|p{2cm}|}{\centering Kierunek} & \multicolumn{1}{p{6cm}|}{\centering Prowadzący} & \multicolumn{1}{c|}{\centering Grupa} \\ \hline
+
+        \multirow{2}{*}{\centering 2024/2025} & \multicolumn{1}{p{2.5cm}|}{\centering \subjectWeekDay
+        
+        \subjectHours} & \multirow{2}{*}{Stacjonarne} & \multirow{2}{*}{Informatyka} & \multicolumn{1}{p{6cm}|}{\centering\vspace*{-.5cm}\lecturerOne
+        
+        \vspace*{-.1cm}\lecturerTwo} & \multirow{2}{*}{IGT} \\ \hline
+        
+    \end{tabular}
+    }
+\end{table}
 
 %---------------------------------------------------------------------------
 %           TABLE WITH DIAGONAL HEADER AND MULTICOLUMN HEADER
