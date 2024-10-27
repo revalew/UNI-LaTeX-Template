@@ -70,6 +70,8 @@
 	// "latex-workshop.latex.autoClean.run": "onBuilt", // testing
 	"latex-workshop.latex.autoBuild.interval": 2000,
 	"latex-workshop.latex.rootFile.doNotPrompt": true,
-	"latex-workshop.latex.magic.args": ["-synctex=1", "-interaction=nonstopmode", "-file-line-error", "%DOC%", "-cd"]
+	"latex-workshop.latex.magic.args": ["-synctex=1", "-interaction=nonstopmode", "-file-line-error", "%DOC%", "-cd"],
+	"latex-workshop.view.pdf.tab.editorGroup": "left",
+	"latex-workshop.latex.autoBuild.run": "onSave"
 	// "latex-workshop.latex.rootFile.useSubFile": true,
 }

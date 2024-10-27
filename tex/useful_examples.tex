@@ -9,15 +9,15 @@
 %---------------------------------------------------------------------------
 %           ADD NICE CODE FRAGMENTS
 %---------------------------------------------------------------------------
-\begin{lstlisting}[language=Python, style=allSettingsStyle, caption={Fragment kody tworzący prymityw \textbf{Sphere}}, label={code: primitive sphere}, numbers=none]
-    AttributeBegin
-        NamedMaterial "RightWall"
-        Translate 0 .5 0
-        Rotate 90 1 1 0
-        Shape "sphere"
-            "float radius" [.5]
-            "float phimax" 90
-    AttributeEnd
+\begin{lstlisting}[style=PBRT, caption={Fragment kodu tworzący prymityw \textbf{bilinearmesh}}, label={code: primitive-bilinearmesh}, basicstyle=\fontsize{12}{8}\selectfont\ttfamily]
+AttributeBegin
+    NamedMaterial "RightWall"
+    Translate 0 0 -1
+    Rotate 90 0 1 0 
+    Shape "bilinearmesh"
+        "integer indices" [ 0 1 2 0]
+        "point3 P" [ -1 0 0 -1 2 1 -1 2 -1 -1 0 -1 ]
+AttributeEnd
 \end{lstlisting}
 
 
